@@ -48,19 +48,18 @@ public:
 
         arr = new T[rhs.capacity];
         capacity = rhs.capacity;
-        size = rhs.size;
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < capacity; i++) {
             arr[i] = rhs.arr[i];
         }
         return *this;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const DynamicArray& rhs) {
+    friend std::ostream& operator<<(std::ostream& os, const StaticArray& rhs) {
         os << "[";
-        for (int i = 0; i < rhs.size; i++) {
+        for (int i = 0; i < rhs.capacity; i++) {
             os << rhs.arr[i];
-            if (i != rhs.size-1) {
+            if (i != rhs.capacity-1) {
                 os << ", ";
             }
         }
