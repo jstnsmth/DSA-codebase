@@ -1,7 +1,6 @@
 #ifndef ARRAY_STATIC_H
 #define ARRAY_STATIC_H
 
-#include <algorithm>
 #include <initializer_list>
 #include <stdexcept>
 
@@ -24,6 +23,7 @@ public:
 
     StaticArray(const StaticArray& rhs) {
         arr = new T[capacity];
+        capacity = rhs.capacity;
 
         for (int i = 0; i < capacity; i++) {
             arr[i] = rhs.arr[i];
