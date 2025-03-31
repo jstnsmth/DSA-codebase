@@ -1,8 +1,12 @@
 #include <iostream>
 #include "array_static.h"
 #include "array_dynamic.h"
+#include "singly_linkedlist.h"
 
 int main() {
-    StaticArray<int> arr = {1,2,3,4};
-    std::cout << arr;
+    SinglyLinkedList<int> ll;
+    ll.addFirst(2);
+    ll.add(4);
+    ll.add(3);
+    ll.display();
 }

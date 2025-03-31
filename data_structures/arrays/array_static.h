@@ -78,6 +78,13 @@ public:
         return arr[index];
     }
 
+    T& get(const int index) const {
+        if (index < 0 || index >= capacity) {
+            throw std::out_of_range("Index is out of range");
+        }
+        return arr[index];
+    }
+
     int getCapacity() const {
         return capacity;
     }
