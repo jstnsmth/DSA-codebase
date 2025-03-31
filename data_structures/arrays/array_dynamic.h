@@ -3,15 +3,11 @@
 
 #include <initializer_list>
 #include <stdexcept>
-#include <iostream>
-
-// TODO: bug with copy constructor
-// TODO: arr[i] = i; doesn't work. should work and increase size
 
 template <typename T>
 class DynamicArray {
 public:
-    DynamicArray(int capacity)
+    DynamicArray(int capacity=5)
         : arr (new T[capacity])
         , capacity (capacity)
         , size (0)
@@ -25,12 +21,13 @@ public:
         }
     }
 
-    DynamicArray(const DynamicArray& rhs) {
-        arr = new T[capacity];
-        capacity = rhs.capacity;
-
-        for (int i = 0; i < rhs.size; i++) {
-            push_back(rhs[i]);
+    DynamicArray(const DynamicArray& rhs)
+        : arr(new T[rhs.capacity])
+        , capacity(rhs.capacity)
+        , size(rhs.size)
+    {
+        for (int i = 0; i < size; i++) {
+            arr[i] = rhs.arr[i];
         }
     }
 
@@ -58,7 +55,26 @@ public:
         if (index < 0 || index >= capacity) {
             throw std::out_of_range("Index is out of bounds");
         }
+
+        if (index >= size) {
+            size = index + 1;
+        }
         return arr[index];
+    }
+
+    DynamicArray& operator=(const DynamicArray& rhs) {
+        if (this == &rhs) return *this;
+
+        delete[] arr;
+
+        arr = new T[rhs.capacity];
+        capacity = rhs.capacity;
+        size = rhs.size;
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = rhs.arr[i];
+        }
+        return *this;
     }
 
     friend std::ostream& operator<<(std::ostream& os, const DynamicArray& rhs) {
@@ -93,7 +109,7 @@ public:
     }
 
 private:
-    T* arr{};
+    T* arr = nullptr;
     int capacity{};
     int size{};
 
@@ -105,7 +121,6 @@ private:
         }
         delete[] arr;
         arr = newArr;
-        std::cout << "resized.";
     }
 };
 

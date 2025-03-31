@@ -1,3 +1,0 @@
-push_back()
-pop_back()
-resize();
