@@ -21,10 +21,10 @@ public:
         }
     }
 
-    StaticArray(const StaticArray& rhs) {
-        arr = new T[capacity];
-        capacity = rhs.capacity;
-
+    StaticArray(const StaticArray& rhs)
+        : arr(new T[rhs.capacity])
+        , capacity(rhs.capacity)
+    {
         for (int i = 0; i < capacity; i++) {
             arr[i] = rhs.arr[i];
         }
@@ -39,6 +39,33 @@ public:
             throw std::out_of_range("Index is out of bounds");
         }
         return arr[index];
+    }
+
+    StaticArray& operator=(const StaticArray& rhs) {
+        if (this == &rhs) return *this;
+
+        delete[] arr;
+
+        arr = new T[rhs.capacity];
+        capacity = rhs.capacity;
+        size = rhs.size;
+
+        for (int i = 0; i < size; i++) {
+            arr[i] = rhs.arr[i];
+        }
+        return *this;
+    }
+
+    friend std::ostream& operator<<(std::ostream& os, const DynamicArray& rhs) {
+        os << "[";
+        for (int i = 0; i < rhs.size; i++) {
+            os << rhs.arr[i];
+            if (i != rhs.size-1) {
+                os << ", ";
+            }
+        }
+        os << "]\n";
+        return os;
     }
 
     bool isEmpty() const {
