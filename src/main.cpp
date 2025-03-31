@@ -1,7 +1,6 @@
-#include "LinkedList.h"
 #include <iostream>
+#include "array_static.h"
 
 int main() {
-    LinkedList linkedlist;
-    return 0;
+    StaticArray<double> arr(4);
 }
