@@ -4,9 +4,7 @@
 #include "singly_linkedlist.h"
 
 int main() {
-    SinglyLinkedList<int> ll;
-    ll.addFirst(2);
-    ll.add(4);
-    ll.add(3);
+    SinglyLinkedList<int> ll = {1,2,3,4};
+    ll.reverse();
     ll.display();
 }
