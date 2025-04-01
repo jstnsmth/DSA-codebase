@@ -85,6 +85,10 @@ public:
         return arr[index];
     }
 
+    int getSize() const {
+        return capacity;
+    }
+
     int getCapacity() const {
         return capacity;
     }

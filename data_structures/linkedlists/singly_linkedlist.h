@@ -217,7 +217,7 @@ public:
         return -1;
     }
 
-    Node* get(const int index) {
+    Node* get(const int index) const {
         if (head == nullptr) return nullptr;
 
         Node* curr = head;
@@ -229,6 +229,10 @@ public:
             curr = curr->next;
         }
         return nullptr;
+    }
+
+    Node* getHead() {
+        return head;
     }
 
     void reverse() {
