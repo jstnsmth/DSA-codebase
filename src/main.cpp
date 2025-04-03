@@ -6,10 +6,11 @@
 #include "mergesort.h"
 #include "linearsearch.h"
 #include "bubblesort.h"
+#include "insertionsort.h"
 
 int main() {
     DynamicArray<int> arr = {5,8,7,9,1,2,6,1,3};
-    bubbleSort<DynamicArray<int>, int>(arr);
+    insertionSort<DynamicArray<int>, int>(arr);
     std::cout << arr;
 }
 
