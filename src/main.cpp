@@ -5,9 +5,11 @@
 #include "binarysearch.h"
 #include "mergesort.h"
 #include "linearsearch.h"
+#include "bubblesort.h"
 
 int main() {
-    StaticArray<int> arr = {5,8,7,9,1,2,6,1,3};
-    mergeSort<StaticArray<int>, int>(arr, 0, arr.getSize()-1);
+    DynamicArray<int> arr = {5,8,7,9,1,2,6,1,3};
+    bubbleSort<DynamicArray<int>, int>(arr);
     std::cout << arr;
 }
+
