@@ -22,6 +22,7 @@ BINARY_SEARCH_HEADER = $(SEARCHING_DIR)/binarysearch.h
 MERGE_SORT_HEADER = $(SORTING_DIR)/mergesort.h
 BUBBLE_SORT_HEADER = $(SORTING_DIR)/bubblesort.h
 INSERTION_SORT_HEADER = $(SORTING_DIR)/insertionsort.h
+SELECTED_SORT_HEADER = $(SORTING_DIR)/selectionsort.h
 
 TARGET = $(BUILD_DIR)/program
 

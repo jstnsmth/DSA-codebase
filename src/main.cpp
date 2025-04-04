@@ -7,10 +7,11 @@
 #include "linearsearch.h"
 #include "bubblesort.h"
 #include "insertionsort.h"
+#include "selectionsort.h"
 
 int main() {
     DynamicArray<int> arr = {5,8,7,9,1,2,6,1,3};
-    insertionSort<DynamicArray<int>, int>(arr);
+    selectionSort<DynamicArray<int>, int>(arr);
     std::cout << arr;
 }
 
