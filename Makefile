@@ -28,10 +28,8 @@ TARGET = $(BUILD_DIR)/program
 
 OBJ = $(BUILD_DIR)/main.o
 
-# Default target
 all: $(TARGET)
 
-# Ensure build directory exists
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
